@@ -85,6 +85,7 @@ production:
   primary: &primary_production
     <<: *default
     database: myst_production
+    url: <%= ENV['DATABASE_URL'] %>
     username: myst
     password: <%= ENV["MYST_DATABASE_PASSWORD"] %>
   cache:
