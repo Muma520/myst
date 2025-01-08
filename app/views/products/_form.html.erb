@@ -1,11 +1,51 @@
-<%= form_with model: product do |form| %>
+<!--<%= form_with model: product do |form| %>
     <div>
       <%= form.label :name %>
       <%= form.text_field :name %>
     </div>
-  
+    
+    <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.rich_text_area :description %>
+    </div>
+
+    <div>
+    <%= form.label :featured_image, style: "display: block" %>
+    <%= form.file_field :featured_image, accept: "image/*" %>
+    </div>
+
+    <div>
+    <%= form.label :inventory_count, style: "display: block" %>
+    <%= form.number_field :inventory_count %>
+    </div>
+
     <div>
       <%= form.submit %>
     </div>
   <% end %>
-  
+-->
+<%= form_with model: product, class: "needs-validation", local: true do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter product name" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.rich_text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :featured_image, class: "form-label" %>
+    <%= form.file_field :featured_image, class: "form-control", accept: "image/*" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :inventory_count, class: "form-label" %>
+    <%= form.number_field :inventory_count, class: "form-control", placeholder: "Enter inventory count" %>
+  </div>
+
+  <div class="d-grid gap-2">
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
