@@ -14,7 +14,30 @@
 
 <%= link_to "Login", new_session_path unless authenticated? %>
 -->
-<div class="d-flex justify-content-between align-items-center mb-4" style="padding-top:10px;">
+
+<div class="slideshow-container">
+  <div class="mySlider fade">
+    <img src="https://file.hstatic.net/1000230642/file/image3_1ad7e0a958b04d7997080f1257721954.png" style="width:100%" />
+    <div class="text">Caption Text</div>
+  </div>
+  <div class="mySlider fade">
+    <img src="https://quangcaonoithatdep.vn/wp-content/uploads/2021/08/mau-thiet-ke-cua-hang-giay-dep-tui-xach-dep-5.jpg" style="width:100%" />
+    <div class="text">Caption Two</div>
+  </div>
+  <div class="mySlider fade">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIEu73UemrnMZVTp-yfc90-M8VpVNQnXqJXA&s" style="width:100%" />
+    <div class="text">Caption Three</div>
+  </div>
+  <a class="prev" onclick="plusSlider(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlider(1)">&#10095;</a>
+</div>
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlider(1)"></span>
+  <span class="dot" onclick="currentSlider(2)"></span>
+  <span class="dot" onclick="currentSlider(3)"></span>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
   <% if authenticated? %>
     <%= link_to "New Product", new_product_path, class: "btn btn-primary" %>
   <% end %>
@@ -47,3 +70,32 @@
     </div>
   <% end %>
 </div>
+
+<script>
+var slideIndex = 1;
+showSlider(slideIndex);
+
+function plusSlider(n) {
+  showSlider(slideIndex += n);
+}
+
+function currentSlider(n) {
+  showSlider(slideIndex = n);
+}
+
+function showSlider(n) {
+  var i;
+  var slider = document.getElementsByClassName("mySlider");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slider.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slider.length}
+  for (i = 0; i < slider.length; i++) {
+      slider[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slider[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
