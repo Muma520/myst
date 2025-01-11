@@ -1,8 +1,14 @@
-<h1>Forgot your password?</h1>
+<h1>Quên mật khẩu?</h1>
 
 <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
 
 <%= form_with url: passwords_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.submit "Email reset instructions" %>
+  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Nhập email của bạn", value: params[:email_address] %><br>
+  <%= form.submit "Link chỉ dẫn đến reset mật khẩu" %>
+<% end %>
+
+<% if flash[:reset_link].present? %>
+  <div style="margin-top: 10px; color: green;">
+    <strong>Hướng dẫn:</strong> <%= link_to "Click vào đây để reset mật khẩu", flash[:reset_link] %>
+  </div>
 <% end %>

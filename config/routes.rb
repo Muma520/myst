@@ -6,9 +6,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :subscribers, only: [ :create ]
     resource :unsubscribe, only: [ :show ]
-    collection do
-      get 'list'
-    end
   end
   root "products#index"
 end

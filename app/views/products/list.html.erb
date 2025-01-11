@@ -1,14 +1,17 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
-  <%= link_to "Thêm Sản phẩm", new_product_path, class: "btn btn-primary" %>
+  <%= link_to "Thêm sản phẩm", new_product_path, class: "btn btn-primary" %>
+  <%= link_to "Xem dưới dạng Card", products_path(view_type: 'card'), class: "btn btn-outline-primary btn-sm" %>
 </div>
 
-<h1>Danh sách Sản phẩm</h1>
+<h1 class="text-center"><%= t ".title" %></h1>
 
 <table class="table">
   <thead>
     <tr>
       <th>#</th>
-      <th>Tên sản phẩm</th>
+      <th>Tên Sản phẩm</th>
+      <th>Mô tả</th>
+      <th>Số lượng tồn</th>
       <th>Hành động</th>
     </tr>
   </thead>
@@ -17,6 +20,8 @@
       <tr>
         <td><%= index + 1 + (@products.current_page - 1) * @products.limit_value %></td>
         <td><%= product.name %></td>
+        <td><%= truncate(product.description.body.to_s, length: 100) %></td>
+        <td><%= product.inventory_count %></td>
         <td>
           <%= link_to 'Sửa', edit_product_path(product), class: "btn btn-warning btn-sm" %>
           <%= link_to 'Xóa', product_path(product), method: :delete, data: { confirm: 'Bạn có chắc chắn muốn xóa sản phẩm này?' }, class: "btn btn-danger btn-sm" %>
@@ -26,4 +31,4 @@
   </tbody>
 </table>
 
-<%= paginate @products %> <!-- Phân trang -->
+<%= paginate @products %>  <!-- Hiển thị phân trang -->

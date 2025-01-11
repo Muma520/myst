@@ -26,23 +26,23 @@
 -->
 <%= form_with model: product, class: "needs-validation", local: true do |form| %>
   <div class="mb-3">
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control", placeholder: "Enter product name" %>
+    <%= form.label :Tên_sản_phẩm, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Nhập tên sản phẩm" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :description, class: "form-label" %>
+    <%= form.label :Mô_tả, class: "form-label" %>
     <%= form.rich_text_area :description, class: "form-control" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :featured_image, class: "form-label" %>
+    <%= form.label :Hình_ảnh, class: "form-label" %>
     <%= form.file_field :featured_image, class: "form-control", accept: "image/*" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :inventory_count, class: "form-label" %>
-    <%= form.number_field :inventory_count, class: "form-control", placeholder: "Enter inventory count" %>
+    <%= form.label :Số_lượng, class: "form-label" %>
+    <%= form.number_field :inventory_count, class: "form-control", placeholder: "Nhập số lượng" %>
   </div>
 
   <div class="d-grid gap-2">

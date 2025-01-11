@@ -28,47 +28,68 @@
     <div class="notice"><%= notice %></div>
     <nav>
       <!--<%= link_to "Home", root_path %>-->
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+      <%= button_to "Đăng xuất", session_path, method: :delete if authenticated? %>
     </nav>
-    <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="<%= products_path %>">Myst</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center">
-          <li class="nav-item">
-            <%= link_to 'Danh sách người dùng', users_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="<%= products_path %>">Myst shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center">
+          <% if authenticated? %>
+            <li class="nav-item">
+              <%= link_to 'List Users', users_path, class: 'nav-link' %>
+            </li>
+            <% end %>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
       </div>
-    </div>
-  </nav>
-  
-</body>
-
+    </nav>
     <main>
       <%= yield %>
     </main>
   </body>
+  <footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Myst <%= Time.now.year%></h5>
+        <p><strong>Địa chỉ:</strong> Số 80 Trương Công Định, P3, Tp. Vũng Tàu. – Cơ sở 2: Số 01 Trương Văn Bang, P7, Tp. Vũng Tàu.</p>
+        <p><strong>ĐT:</strong> 1900 63 64 01</p>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Myst shop</h5>
+            <ul>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Hệ thống cửa hàng</a></li>
+              <li><a href="#">Thông tin liên hệ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h5>Hỗ trợ khách hàng</h5>
+            <ul>
+              <li><a href="#">Chính sách giao hàng</a></li>
+              <li><a href="#">Chính sách đổi trả hàng - Bảo hành</a></li>
+              <li><a href="#">Chính sách trả góp</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+              <li><a href="#">Hỗ trợ và giải đáp thắc mắc</a></li>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Hướng dẫn chọn size</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </html>

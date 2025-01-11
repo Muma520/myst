@@ -7,18 +7,18 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h3 class="text-center">Sign Up</h3>
+          <h3 class="text-center">Đăng ký</h3>
         </div>
         <div class="card-body">
           <%= form_with url: registration_path do |form| %>
             <div class="form-group">
-              <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "form-control" %><br>
+              <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Nhập email", value: params[:email_address], class: "form-control" %><br>
             </div>
             <div class="form-group">
-              <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, class: "form-control" %><br>
+              <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Nhập mật khẩu", maxlength: 72, class: "form-control" %><br>
             </div>
             <div class="text-center">
-              <%= form.submit "Sign in", class: "btn btn-primary" %>
+              <%= form.submit "Đăng ký", class: "btn btn-primary" %>
             </div>
           <% end %>
         </div>
@@ -30,6 +30,6 @@
 <br>
 
 <div class="text-center">
-  <%= link_to "Forgot password?", new_password_path %>
-  <%= link_to "Sign up", new_registration_path %>
+  <%= link_to "Quên mật khẩu?", new_password_path %>
+  <%= link_to "Đăng nhập", new_session_path %>
 </div>
